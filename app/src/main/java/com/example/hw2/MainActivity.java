@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         "that's what you chose?, %s",
                         "AMAZING! %s",
                         "yes %s",
-                        "%s is a horrible thing",
+                        "%s  is a horrible thing",
                         "is %s your name?",
                         "oof that's tough %s",
                         "wow %s is a thing!",
