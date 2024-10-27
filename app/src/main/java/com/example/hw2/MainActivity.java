@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         TextView text = findViewById(R.id.textView);
 
         int editTextColor = edit.getCurrentTextColor();
-        int dullColor = (editTextColor & 0x00FFFFFF) | (0x80 << 24);
+        int dullColor = (editTextColor & 0x00FFFFFF) | (0x80 << 24);//כדי שהיהלו צבע יפה
         text.setTextColor(dullColor);
 
         Button TxtChangeBtn = findViewById(R.id.TxtChangeBtn);
@@ -50,30 +50,27 @@ public class MainActivity extends AppCompatActivity {
                 String inputText = edit.getText().toString().trim();
                 Random random = new Random();
                 int rn = random.nextInt(10);
+
+                final String[] x = {
+                        "yo, how are you %s",
+                        "you're great %s",
+                        "that's what you chose?, %s",
+                        "AMAZING! %s",
+                        "yes %s",
+                        "%s is a horrible thing",
+                        "is %s your name?",
+                        "oof that's tough %s",
+                        "wow %s is a thing!",
+                        "this: '%s' looks like this: (～￣▽￣)～"
+                };
+
+
                 if (inputText.isEmpty()) {
                     text.setText("Wow really? Not writing anything? That's lame");
                 } else {
-                    if (rn == 0) {
-                        text.setText("yo, how are you " + inputText);
-                    } else if (rn == 1) {
-                        text.setText("your great " + inputText);
-                    } else if (rn == 2) {
-                        text.setText("that's what you chose?, " + inputText);
-                    } else if (rn == 3) {
-                        text.setText("AMAZING! " + inputText);
-                    } else if (rn == 4) {
-                        text.setText("yes " + inputText);
-                    } else if (rn == 5) {
-                        text.setText(inputText + " is a horrable thing");
-                    } else if (rn == 6) {
-                        text.setText("is " + inputText + " your name?");
-                    } else if (rn == 7) {
-                        text.setText("oof that's tuff " + inputText);
-                    } else if (rn == 8) {
-                        text.setText("wow " + inputText + " is a thing!");
-                    } else if (rn == 9) {
-                        text.setText("this: '" + inputText + "' looks like this: (～￣▽￣)～");
-                    }
+
+                    String response = x[rn];
+                    text.setText(String.format(response,inputText));
                 }
             }
         });
